@@ -1,42 +1,32 @@
 #include <stdio.h>
 
-void displayArr(int arr[], int size)
+void displayArr(int array[], int size)
 {
     for (int i = 0; i < size; i++)
     {
-        printf("%d  ", arr[i]);
+        printf("%d  ", array[i]);
     }
+    printf("\n");
 }
-
-int makeInser(int arr[], int size, int element, int index, int maxsize)
+void deletElement(int array[], int size, int index)
 {
-    if (size > 100)
+    printf("Deleted element is %d ", array[index]);
+    for (int i = index; i < size - 1; i++)
+
     {
-        return -1;
-    }
-    else
-    {
-        for (int i = size - 1; i >= index; i--)
-        {
-            arr[i + 1] = arr[i];
-        }
-        arr[index] = element;
-        return 1;
+        array[i] = array[i + 1];
     }
 }
 
 int main()
 {
-    int arr[100] = {1, 2, 43, 56, 87};
-    int size = 5;
-    int element = 21;
+    int arr[50] = {1, 2, 3, 56, 7, 88, 94};
     int index = 3;
-    int maxsize = 100;
+    int size = 7;
     displayArr(arr, size);
-    makeInser(arr, size, element, index, maxsize);
-    size++;
+    deletElement(arr, size, index);
+    size--;
     printf("\n");
     displayArr(arr, size);
-
     return 0;
 }
